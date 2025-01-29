@@ -1,0 +1,10 @@
+C:\Users\rdpod\source\repos\EWOD GUI - Reed Podoll\EWOD GUI - Reed Podoll\bin\Debug\EWOD GUI - Reed Podoll.exe.config
+C:\Users\rdpod\source\repos\EWOD GUI - Reed Podoll\EWOD GUI - Reed Podoll\bin\Debug\EWOD GUI - Reed Podoll.exe
+C:\Users\rdpod\source\repos\EWOD GUI - Reed Podoll\EWOD GUI - Reed Podoll\bin\Debug\EWOD GUI - Reed Podoll.pdb
+C:\Users\rdpod\source\repos\EWOD GUI - Reed Podoll\EWOD GUI - Reed Podoll\obj\Debug\EWOD GUI - Reed Podoll.csproj.AssemblyReference.cache
+C:\Users\rdpod\source\repos\EWOD GUI - Reed Podoll\EWOD GUI - Reed Podoll\obj\Debug\EWOD_GUI___Reed_Podoll.uxEwod.resources
+C:\Users\rdpod\source\repos\EWOD GUI - Reed Podoll\EWOD GUI - Reed Podoll\obj\Debug\EWOD_GUI___Reed_Podoll.Properties.Resources.resources
+C:\Users\rdpod\source\repos\EWOD GUI - Reed Podoll\EWOD GUI - Reed Podoll\obj\Debug\EWOD GUI - Reed Podoll.csproj.GenerateResource.cache
+C:\Users\rdpod\source\repos\EWOD GUI - Reed Podoll\EWOD GUI - Reed Podoll\obj\Debug\EWOD GUI - Reed Podoll.csproj.CoreCompileInputs.cache
+C:\Users\rdpod\source\repos\EWOD GUI - Reed Podoll\EWOD GUI - Reed Podoll\obj\Debug\EWOD GUI - Reed Podoll.exe
+C:\Users\rdpod\source\repos\EWOD GUI - Reed Podoll\EWOD GUI - Reed Podoll\obj\Debug\EWOD GUI - Reed Podoll.pdb
