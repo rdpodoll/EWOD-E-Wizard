@@ -46,6 +46,12 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="ArduinoCOM.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="ArduinoCOM.Designer.cs">
+      <DependentUpon>ArduinoCOM.cs</DependentUpon>
+    </Compile>
     <Compile Include="EWOD.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -54,6 +60,9 @@
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <EmbeddedResource Include="ArduinoCOM.resx">
+      <DependentUpon>ArduinoCOM.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="EWOD.resx">
       <DependentUpon>EWOD.cs</DependentUpon>
     </EmbeddedResource>

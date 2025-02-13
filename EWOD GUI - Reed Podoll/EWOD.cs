@@ -71,6 +71,11 @@ namespace EWOD_GUI___Reed_Podoll
         public uxEwod()
         {
             InitializeComponent();
+
+            ArduinoCOM f = new ArduinoCOM();
+            f.ShowDialog();
+            int val = f.getCOM();
+            serialPort1.PortName = "COM" + val.ToString();
             serialPort1.Open();
             t.Interval = 500; // specify interval time as you want
             t.Tick += new EventHandler(timer_Tick);
@@ -147,7 +152,8 @@ namespace EWOD_GUI___Reed_Podoll
             }
             on[_row, _col] = false;
             //here you can check which button was clicked by the sender
-            clickedButton.Enabled = false;
+            //clickedButton.Enabled = false;
+            
             clickedButton.BackColor = Color.Blue;
 
             for (int i = 0; i < 21; i++)
@@ -162,12 +168,12 @@ namespace EWOD_GUI___Reed_Podoll
                             _col = j;
                             if (_locked)
                             {
-                                OnElectrode();
+                                OnElectrode(clickedButton);
                             }
                             else
                             {
                                 ElectrodeReset();
-                                OnElectrode();
+                                OnElectrode(clickedButton);
                             }
                             serialPort1.Write(BuildSend());
                         }
@@ -190,7 +196,7 @@ namespace EWOD_GUI___Reed_Podoll
             return sb.ToString();
         }
 
-        public void OnElectrode()
+        public void OnElectrode(Button clickedButton)
         {
             int val = ChipArray[_row, _col];
             int row = 0;
@@ -206,7 +212,15 @@ namespace EWOD_GUI___Reed_Podoll
                     }
                 }
             }
-            ZeroArray[row, col] = 1;
+            if (ZeroArray[row, col] == 1)
+            {
+                ZeroArray[row, col] = 0;
+                clickedButton.BackColor = Color.White;
+            }
+            else
+            {
+                ZeroArray[row, col] = 1;
+            }
         }
 
         public void ElectrodeReset()
@@ -244,12 +258,12 @@ namespace EWOD_GUI___Reed_Podoll
                         on[_row, _col] = true;
                         if (_locked)
                         {
-                            OnElectrode();
+                            OnElectrode(buttonMap[_row, _col]);
                         }
                         else
                         {
                             ElectrodeReset();
-                            OnElectrode();
+                            OnElectrode(buttonMap[_row, _col]);
                         }
                         serialPort1.Write(BuildSend());
                     }
@@ -277,12 +291,12 @@ namespace EWOD_GUI___Reed_Podoll
                         on[_row, _col] = true;
                         if (_locked)
                         {
-                            OnElectrode();
+                            OnElectrode(buttonMap[_row, _col]);
                         }
                         else
                         {
                             ElectrodeReset();
-                            OnElectrode();
+                            OnElectrode(buttonMap[_row, _col]);
                         }
                         serialPort1.Write(BuildSend());
                     }
@@ -310,12 +324,12 @@ namespace EWOD_GUI___Reed_Podoll
                         on[_row, _col] = true;
                         if (_locked)
                         {
-                            OnElectrode();
+                            OnElectrode(buttonMap[_row, _col]);
                         }
                         else
                         {
                             ElectrodeReset();
-                            OnElectrode();
+                            OnElectrode(buttonMap[_row, _col]);
                         }
                         serialPort1.Write(BuildSend());
                     }
@@ -343,12 +357,12 @@ namespace EWOD_GUI___Reed_Podoll
                         on[_row, _col] = true;
                         if (_locked)
                         {
-                            OnElectrode();
+                            OnElectrode(buttonMap[_row, _col]);
                         }
                         else
                         {
                             ElectrodeReset();
-                            OnElectrode();
+                            OnElectrode(buttonMap[_row, _col]);
                         }
                         serialPort1.Write(BuildSend());
                     }

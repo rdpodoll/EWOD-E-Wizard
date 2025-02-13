@@ -3,8 +3,28 @@
   "WorkspaceRootPath": "C:\\Users\\rdpod\\source\\repos\\EWOD-E-Wizard\\",
   "Documents": [
     {
-      "AbsoluteMoniker": "D:0:0:{482B5632-0885-4AEF-B727-D33746A5516C}|EWOD GUI - Reed Podoll\\EWOD GUI - Reed Podoll.csproj|c:\\users\\rdpod\\source\\repos\\ewod-e-wizard\\ewod gui - reed podoll\\ewod.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form",
+      "AbsoluteMoniker": "D:0:0:{482B5632-0885-4AEF-B727-D33746A5516C}|EWOD GUI - Reed Podoll\\EWOD GUI - Reed Podoll.csproj|c:\\users\\rdpod\\source\\repos\\ewod-e-wizard\\ewod gui - reed podoll\\ewod.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{482B5632-0885-4AEF-B727-D33746A5516C}|EWOD GUI - Reed Podoll\\EWOD GUI - Reed Podoll.csproj|solutionrelative:ewod gui - reed podoll\\ewod.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{482B5632-0885-4AEF-B727-D33746A5516C}|EWOD GUI - Reed Podoll\\EWOD GUI - Reed Podoll.csproj|C:\\Users\\rdpod\\source\\repos\\EWOD-E-Wizard\\ewod gui - reed podoll\\arduinocom.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form",
+      "RelativeMoniker": "D:0:0:{482B5632-0885-4AEF-B727-D33746A5516C}|EWOD GUI - Reed Podoll\\EWOD GUI - Reed Podoll.csproj|solutionrelative:ewod gui - reed podoll\\arduinocom.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{482B5632-0885-4AEF-B727-D33746A5516C}|EWOD GUI - Reed Podoll\\EWOD GUI - Reed Podoll.csproj|C:\\Users\\rdpod\\source\\repos\\EWOD-E-Wizard\\ewod gui - reed podoll\\ewod.designer.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{482B5632-0885-4AEF-B727-D33746A5516C}|EWOD GUI - Reed Podoll\\EWOD GUI - Reed Podoll.csproj|solutionrelative:ewod gui - reed podoll\\ewod.designer.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{482B5632-0885-4AEF-B727-D33746A5516C}|EWOD GUI - Reed Podoll\\EWOD GUI - Reed Podoll.csproj|C:\\Users\\rdpod\\source\\repos\\EWOD-E-Wizard\\ewod gui - reed podoll\\ewod.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form",
       "RelativeMoniker": "D:0:0:{482B5632-0885-4AEF-B727-D33746A5516C}|EWOD GUI - Reed Podoll\\EWOD GUI - Reed Podoll.csproj|solutionrelative:ewod gui - reed podoll\\ewod.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{482B5632-0885-4AEF-B727-D33746A5516C}|EWOD GUI - Reed Podoll\\EWOD GUI - Reed Podoll.csproj|C:\\Users\\rdpod\\source\\repos\\EWOD-E-Wizard\\ewod gui - reed podoll\\arduinocom.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{482B5632-0885-4AEF-B727-D33746A5516C}|EWOD GUI - Reed Podoll\\EWOD GUI - Reed Podoll.csproj|solutionrelative:ewod gui - reed podoll\\arduinocom.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{482B5632-0885-4AEF-B727-D33746A5516C}|EWOD GUI - Reed Podoll\\EWOD GUI - Reed Podoll.csproj|C:\\Users\\rdpod\\source\\repos\\EWOD-E-Wizard\\ewod gui - reed podoll\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{482B5632-0885-4AEF-B727-D33746A5516C}|EWOD GUI - Reed Podoll\\EWOD GUI - Reed Podoll.csproj|solutionrelative:ewod gui - reed podoll\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     }
   ],
   "DocumentGroupContainers": [
@@ -14,19 +34,78 @@
       "DocumentGroups": [
         {
           "DockedWidth": 200,
-          "SelectedChildIndex": 0,
+          "SelectedChildIndex": 2,
           "Children": [
             {
               "$type": "Document",
+              "DocumentIndex": 4,
+              "Title": "ArduinoCOM.cs",
+              "DocumentMoniker": "C:\\Users\\rdpod\\source\\repos\\EWOD-E-Wizard\\EWOD GUI - Reed Podoll\\ArduinoCOM.cs",
+              "RelativeDocumentMoniker": "EWOD GUI - Reed Podoll\\ArduinoCOM.cs",
+              "ToolTip": "C:\\Users\\rdpod\\source\\repos\\EWOD-E-Wizard\\EWOD GUI - Reed Podoll\\ArduinoCOM.cs",
+              "RelativeToolTip": "EWOD GUI - Reed Podoll\\ArduinoCOM.cs",
+              "ViewState": "AQIAAAoAAAAAAAAAAAAvwBIAAAAJAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-02-13T18:25:11.692Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 1,
+              "Title": "ArduinoCOM.cs [Design]",
+              "DocumentMoniker": "C:\\Users\\rdpod\\source\\repos\\EWOD-E-Wizard\\EWOD GUI - Reed Podoll\\ArduinoCOM.cs",
+              "RelativeDocumentMoniker": "EWOD GUI - Reed Podoll\\ArduinoCOM.cs",
+              "ToolTip": "C:\\Users\\rdpod\\source\\repos\\EWOD-E-Wizard\\EWOD GUI - Reed Podoll\\ArduinoCOM.cs [Design]",
+              "RelativeToolTip": "EWOD GUI - Reed Podoll\\ArduinoCOM.cs [Design]",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-02-13T18:00:29.563Z"
+            },
+            {
+              "$type": "Document",
               "DocumentIndex": 0,
+              "Title": "EWOD.cs",
+              "DocumentMoniker": "C:\\Users\\rdpod\\source\\repos\\EWOD-E-Wizard\\EWOD GUI - Reed Podoll\\EWOD.cs",
+              "RelativeDocumentMoniker": "EWOD GUI - Reed Podoll\\EWOD.cs",
+              "ToolTip": "C:\\Users\\rdpod\\source\\repos\\EWOD-E-Wizard\\EWOD GUI - Reed Podoll\\EWOD.cs",
+              "RelativeToolTip": "EWOD GUI - Reed Podoll\\EWOD.cs",
+              "ViewState": "AQIAAD4AAAAAAAAAAAAAwEoAAAAsAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-02-03T16:52:33.445Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 3,
               "Title": "EWOD.cs [Design]",
               "DocumentMoniker": "C:\\Users\\rdpod\\source\\repos\\EWOD-E-Wizard\\EWOD GUI - Reed Podoll\\EWOD.cs",
               "RelativeDocumentMoniker": "EWOD GUI - Reed Podoll\\EWOD.cs",
               "ToolTip": "C:\\Users\\rdpod\\source\\repos\\EWOD-E-Wizard\\EWOD GUI - Reed Podoll\\EWOD.cs [Design]",
               "RelativeToolTip": "EWOD GUI - Reed Podoll\\EWOD.cs [Design]",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-01-29T18:07:12.055Z",
-              "EditorCaption": " [Design]"
+              "WhenOpened": "2025-01-29T18:07:12.055Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 2,
+              "Title": "EWOD.Designer.cs",
+              "DocumentMoniker": "C:\\Users\\rdpod\\source\\repos\\EWOD-E-Wizard\\EWOD GUI - Reed Podoll\\EWOD.Designer.cs",
+              "RelativeDocumentMoniker": "EWOD GUI - Reed Podoll\\EWOD.Designer.cs",
+              "ToolTip": "C:\\Users\\rdpod\\source\\repos\\EWOD-E-Wizard\\EWOD GUI - Reed Podoll\\EWOD.Designer.cs",
+              "RelativeToolTip": "EWOD GUI - Reed Podoll\\EWOD.Designer.cs",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAABYAAAAIAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-02-03T16:51:16.044Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 5,
+              "Title": "Program.cs",
+              "DocumentMoniker": "C:\\Users\\rdpod\\source\\repos\\EWOD-E-Wizard\\EWOD GUI - Reed Podoll\\Program.cs",
+              "RelativeDocumentMoniker": "EWOD GUI - Reed Podoll\\Program.cs",
+              "ToolTip": "C:\\Users\\rdpod\\source\\repos\\EWOD-E-Wizard\\EWOD GUI - Reed Podoll\\Program.cs",
+              "RelativeToolTip": "EWOD GUI - Reed Podoll\\Program.cs",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-01-31T16:50:31.917Z"
             }
           ]
         }
