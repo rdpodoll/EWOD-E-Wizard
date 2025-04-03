@@ -125,6 +125,12 @@ namespace EWOD_GUI___Reed_Podoll
 
             uxPath.Enabled = false;
             uxPath.Click -= ButtonClick;
+
+            uxSplitH.Enabled = false;
+            uxSplitH.Click -= ButtonClick;
+
+            uxSplitV.Enabled = false;
+            uxSplitV.Click -= ButtonClick;
         }
         /*
         private void uxEwod_Load(object sender, EventArgs e)
@@ -140,6 +146,8 @@ namespace EWOD_GUI___Reed_Podoll
             uxDown.Enabled = true;
             uxLock.Enabled = true;
             uxPath.Enabled = true;
+            uxSplitH.Enabled = true;
+            uxSplitV.Enabled = true;
             Button clickedButton = sender as Button;
             if (!(_locked))
             {
@@ -432,6 +440,71 @@ namespace EWOD_GUI___Reed_Podoll
                 _rightCount = 0;
                 uxPath.Enabled = true;
                 t.Stop();
+            }
+        }
+
+        private void uxSplitH_Click(object sender, EventArgs e)
+        {
+            if (_col != 0 && _col != 27)
+            {
+                if ((on[_row, _col + 1] != true) && (on[_row, _col + 1] != true))
+                {
+                    //ElectrodeReset();
+
+
+                    _col = _col + 1;
+                    OnElectrode(buttonMap[_row, _col]);
+                    buttonMap[_row, _col + 1].BackColor = Color.Blue;
+                    on[_row, _col + 1] = true;
+
+                    _col = _col - 2;
+                    OnElectrode(buttonMap[_row, _col]);
+                    buttonMap[_row, _col - 1].BackColor = Color.Blue;
+                    on[_row, _col - 1] = true;
+                    
+
+                    serialPort1.Write(BuildSend());
+
+                    _col = _col + 1;
+                    on[_row, _col] = false;
+                    OnElectrode(buttonMap[_row, _col]);
+
+                    serialPort1.Write(BuildSend());
+                    buttonMap[_row, _col].BackColor = Color.White;
+                    _col = _col + 1; //TEST
+                }
+            }
+        }
+
+        private void uxSplitV_Click(object sender, EventArgs e)
+        {
+            if (_row != 0 && _row != 20)
+            {
+                if ((on[_row + 1, _col] != true) && (on[_row - 1, _col] != true))
+                {
+                    //ElectrodeReset();
+                    _row = _row + 1;
+                    OnElectrode(buttonMap[_row, _col]);
+                    buttonMap[_row + 1, _col].BackColor = Color.Blue;
+                    on[_row + 1, _col] = true;
+
+                    _row = _row - 2;
+                    OnElectrode(buttonMap[_row, _col]);
+                    buttonMap[_row - 1, _col].BackColor = Color.Blue;
+                    on[_row - 1, _col] = true;
+
+                    
+
+                    serialPort1.Write(BuildSend());
+
+                    _row = _row + 1;
+                    on[_row, _col] = false;
+                    buttonMap[_row, _col].BackColor = Color.White;
+                    OnElectrode(buttonMap[_row, _col]);
+                    _row = _row + 1; //TEST
+                    serialPort1.Write(BuildSend());
+
+                }
             }
         }
     }

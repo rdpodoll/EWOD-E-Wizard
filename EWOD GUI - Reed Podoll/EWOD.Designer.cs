@@ -301,6 +301,8 @@
             this.uxDown = new System.Windows.Forms.Button();
             this.uxLeft = new System.Windows.Forms.Button();
             this.uxPath = new System.Windows.Forms.Button();
+            this.uxSplitH = new System.Windows.Forms.Button();
+            this.uxSplitV = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // serialPort1
@@ -2489,6 +2491,26 @@
             this.uxPath.UseVisualStyleBackColor = true;
             this.uxPath.Click += new System.EventHandler(this.uxPath_Click);
             // 
+            // uxSplitH
+            // 
+            this.uxSplitH.Location = new System.Drawing.Point(679, 412);
+            this.uxSplitH.Name = "uxSplitH";
+            this.uxSplitH.Size = new System.Drawing.Size(101, 45);
+            this.uxSplitH.TabIndex = 271;
+            this.uxSplitH.Text = "Split Horizontal";
+            this.uxSplitH.UseVisualStyleBackColor = true;
+            this.uxSplitH.Click += new System.EventHandler(this.uxSplitH_Click);
+            // 
+            // uxSplitV
+            // 
+            this.uxSplitV.Location = new System.Drawing.Point(847, 412);
+            this.uxSplitV.Name = "uxSplitV";
+            this.uxSplitV.Size = new System.Drawing.Size(101, 45);
+            this.uxSplitV.TabIndex = 272;
+            this.uxSplitV.Text = "Split Vertical";
+            this.uxSplitV.UseVisualStyleBackColor = true;
+            this.uxSplitV.Click += new System.EventHandler(this.uxSplitV_Click);
+            // 
             // uxEwod
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
@@ -2765,6 +2787,8 @@
             this.Controls.Add(this.uxRight);
             this.Controls.Add(this.uxDown);
             this.Controls.Add(this.uxPath);
+            this.Controls.Add(this.uxSplitH);
+            this.Controls.Add(this.uxSplitV);
             this.Name = "uxEwod";
             this.Text = "EWOD EWizard";
             this.ResumeLayout(false);
@@ -3045,6 +3069,8 @@
         private System.Windows.Forms.Button uxDown;
         private System.Windows.Forms.Button uxLeft;
         private System.Windows.Forms.Button uxPath;
+        private System.Windows.Forms.Button uxSplitH;
+        private System.Windows.Forms.Button uxSplitV;
     }
 }
 
