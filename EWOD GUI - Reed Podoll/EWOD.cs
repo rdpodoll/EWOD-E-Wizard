@@ -1,4 +1,15 @@
-﻿using System;
+﻿////////////////////////////
+///Author: Reed Podoll
+///
+///2024-2025 FANTasy Lab
+///Kansas State University
+///
+/// This script performs all operations for the "EWOD E-Wizard" for an easy-to-use
+/// GUI to control electrowetting on device (EWOD) operations. Additional device communication
+/// is done using the EWOD E-Wizard Arduino Script through Serial Communication on an Arduino Mega.
+////////////////////////////
+
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -10,9 +21,15 @@ using System.Windows.Forms;
 
 namespace EWOD_GUI___Reed_Podoll
 {
+    /// <summary>
+    /// Performs boot-up operations for GUI layout
+    /// </summary>
     public partial class uxEwod : Form
     {
+        //Holds all buttons in GUI for property manipulation
         private List<Button> buttons = new List<Button>();
+
+        //Determines if buttons are available to move onto (on/off state)
         private bool[,] on = new bool[21, 28];
         private Button[,] buttonMap = new Button[21, 28];
         private int _row;
@@ -33,7 +50,7 @@ namespace EWOD_GUI___Reed_Podoll
         {0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0},  // Electrodes 97-112
         {0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0}}; // Electrodes 113-128
 
-// Electrode locater for previous array
+    // Electrode locater for previous array
     private int[,] NumberArray = {
         {1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16},
         {17, 18, 19, 20, 21, 22, 23, 24, 25, 26, 27, 28, 29, 30, 31, 32},
@@ -44,7 +61,7 @@ namespace EWOD_GUI___Reed_Podoll
         {97, 98, 99, 100, 101, 102, 103, 104, 105, 106, 107, 108, 109, 110, 111, 112},
         {113, 114, 115, 116, 117, 118, 119, 120, 121, 122, 123, 124, 125, 126, 127, 128}};
 
-// PCB electrode layout
+    // PCB electrode layout
     private int[,] ChipArray = {
         {17, 0, 0, 17, 0, 0, 17, 0, 0, 25, 0, 0, 25, 0, 0, 18, 0, 0, 18, 0, 0, 26, 0, 0, 26, 0, 0, 26},
         {20, 0, 0, 21, 0, 0, 22, 0, 0, 23, 0, 0, 24, 0, 0, 60, 0, 0, 61, 0, 0, 62, 0, 0, 63, 0, 0, 64},
@@ -68,6 +85,9 @@ namespace EWOD_GUI___Reed_Podoll
         {128, 0, 0, 119, 0, 0, 118, 0, 0, 117, 0, 0, 116, 0, 0, 82, 0, 0, 81, 0, 0, 79, 0, 0, 76, 0, 0, 74},
         {114, 0, 0, 114, 0, 0, 114, 0, 0, 122, 0, 0, 122, 0, 0, 113, 0, 0, 113, 0, 0, 121, 0, 0, 121, 0, 0, 121}};
 
+        /// <summary>
+        /// Initializes GUI, calls ArduinoCOM for user COM port selection
+        /// </summary>
         public uxEwod()
         {
             InitializeComponent();
@@ -132,12 +152,13 @@ namespace EWOD_GUI___Reed_Podoll
             uxSplitV.Enabled = false;
             uxSplitV.Click -= ButtonClick;
         }
-        /*
-        private void uxEwod_Load(object sender, EventArgs e)
-        {
-
-        }
-        */
+        
+        /// <summary>
+        /// Calls when any electrode button is clicked to turn on/off. Indicates current button state
+        /// and enabled/disables button. Updates electrode information and sends new data to Arduino Mega.
+        /// </summary>
+        /// <param name="sender">Information about the button</param>
+        /// <param name="e">Event called when button is clicked</param>
         public void ButtonClick(object sender, EventArgs e)
         {
             uxUp.Enabled = true;
@@ -158,9 +179,7 @@ namespace EWOD_GUI___Reed_Podoll
                 }
                 
             }
-            on[_row, _col] = false;
-            //here you can check which button was clicked by the sender
-            //clickedButton.Enabled = false;
+            on[_row, _col] = false;           
             
             clickedButton.BackColor = Color.Blue;
 
@@ -191,6 +210,11 @@ namespace EWOD_GUI___Reed_Podoll
             on[_row, _col] = true;
         }
 
+        /// <summary>
+        /// Builds the string to send via serial communication to Arduino Mega about which electrodes
+        /// to turn on/off by button states. Must be in string format to send.
+        /// </summary>
+        /// <returns></returns>
         public string BuildSend()
         {
             StringBuilder sb = new StringBuilder();
@@ -204,6 +228,11 @@ namespace EWOD_GUI___Reed_Podoll
             return sb.ToString();
         }
 
+        /// <summary>
+        /// Finds value of the button clicked, locates that value from the button map, then
+        /// marks for the electrode mapped to that button to turn on.
+        /// </summary>
+        /// <param name="clickedButton">Button that was clicked by the user</param>
         public void OnElectrode(Button clickedButton)
         {
             int val = ChipArray[_row, _col];
@@ -231,6 +260,10 @@ namespace EWOD_GUI___Reed_Podoll
             }
         }
 
+        /// <summary>
+        /// Resets all electrode states on the board before sending over serial. Used mainly in 
+        /// unlocked state.
+        /// </summary>
         public void ElectrodeReset()
         {
             for (int i = 0; i < 8; i++)
@@ -241,6 +274,19 @@ namespace EWOD_GUI___Reed_Podoll
                 }
             }
         }
+        /// <summary>
+        /// Cursor control for the buttons. Detects direction the user is moving, and turns
+        /// and turns on the electrode from the start button in that direction. Uses error 
+        /// states to ensure electrode movement is possible.
+        /// </summary>
+        /// <param name="row">Row the active electrode is in</param>
+        /// <param name="col">Column the active electrode is in</param>
+        /// <param name="dir"> Determines direction to move from the starting button
+        /// 0: Up
+        /// 1: Right
+        /// 2: Down
+        /// 3: Left
+        /// </param>
         public void Move(int row, int col, int dir)
         {
             if (dir == 0)
@@ -294,7 +340,7 @@ namespace EWOD_GUI___Reed_Podoll
                                 button.Enabled = true;
                             }
                         }
-                        //buttonMap[_row, _col].Enabled = false;
+                        
                         buttonMap[_row, _col].BackColor = Color.Blue;
                         on[_row, _col] = true;
                         if (_locked)
@@ -327,7 +373,7 @@ namespace EWOD_GUI___Reed_Podoll
                             }
                         }
 
-                        //buttonMap[_row, _col].Enabled = false;
+                        
                         buttonMap[_row, _col].BackColor = Color.Blue;
                         on[_row, _col] = true;
                         if (_locked)
@@ -360,7 +406,6 @@ namespace EWOD_GUI___Reed_Podoll
                             }
                         }
 
-                        //buttonMap[_row, _col].Enabled = false;
                         buttonMap[_row, _col].BackColor = Color.Blue;
                         on[_row, _col] = true;
                         if (_locked)
@@ -378,40 +423,74 @@ namespace EWOD_GUI___Reed_Podoll
             }
         }
 
+        /// <summary>
+        /// Performs an "Up" movement of electrode from cursor
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void uxUp_Click(object sender, EventArgs e)
         {
             Move(_row, _col, 0);
         }
 
+        /// <summary>
+        /// Performs a "Right" movement of electrode from cursor
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void uxRight_Click(object sender, EventArgs e)
         {
             Move(_row, _col, 1);
         }
 
+        /// <summary>
+        /// Performs a "Down" movement of electrode from cursor
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void uxDown_Click(object sender, EventArgs e)
         {
             Move(_row, _col, 2);
         }
 
+        /// <summary>
+        /// Performs a "Left" movement of electrode from cursor
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void uxLeft_Click(object sender, EventArgs e)
         {
             Move(_row, _col, 3);
         }
-
+        /// <summary>
+        /// Performs operations when user clicks "Lock" button to 
+        /// enable multi-electrode selection
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void uxLock_Click(object sender, EventArgs e)
         {
             uxUnlock.Enabled = true;
             uxLock.Enabled = false;
             _locked = true;
         }
-
+        /// <summary>
+        /// Performs operations when user clicks "Unlock" button to 
+        /// disable multi-electrode selection
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void uxUnlock_Click(object sender, EventArgs e)
         {
             uxLock.Enabled = true;
             uxUnlock.Enabled = false;
             _locked = false;
         }
-
+        /// <summary>
+        /// Starts the user generated path of electrode when "Path" button is clicked
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void uxPath_Click(object sender, EventArgs e)
         {
             uxLock.Enabled = true;
@@ -421,6 +500,14 @@ namespace EWOD_GUI___Reed_Podoll
             t.Start();
             uxPath.Enabled = false;
         }
+        /// <summary>
+        /// User generated path to increment at each timer t. use t.Stop() to
+        /// end path when updating
+        /// 
+        /// USER EDIT AVAILABLE
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         void timer_Tick(object sender, EventArgs e)
         {
             //Call method
@@ -443,6 +530,12 @@ namespace EWOD_GUI___Reed_Podoll
             }
         }
 
+        /// <summary>
+        /// Performs operations of "Split Horizontal" button to cause a horizontal split
+        /// of the active electrode for droplet splitting (left-right)
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void uxSplitH_Click(object sender, EventArgs e)
         {
             if (_col != 0 && _col != 27)
@@ -476,6 +569,12 @@ namespace EWOD_GUI___Reed_Podoll
             }
         }
 
+        /// <summary>
+        /// Performs operations of "Split Vertical" button to cause a vertical split
+        /// of the active electrode for droplet splitting (top-down)
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void uxSplitV_Click(object sender, EventArgs e)
         {
             if (_row != 0 && _row != 20)
